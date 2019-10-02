@@ -1,5 +1,7 @@
 <div class="container">
-  <form autocomplete="off" #usuarioForm>
+  <form autocomplete="off"
+  (ngSubmit)=salvar(usuarioForm)
+  #usuarioForm = ngForm>
 
     <div class="form-group">
       <label>Nome</label>
