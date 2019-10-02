@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form autocomplete="off" #usuarioForm>
 
     <div class="form-group">
       <label>Nome</label>
@@ -12,8 +12,10 @@
     <div class="form-group">
       <label>Profissão</label>
       <select class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
+        <option value="">Selecione... </option>
+        <option>Engenheiro</option>
+        <option>Dentista</option>
+        <option>Professor</option>
       </select>
     </div>
     <button type="submit" class="btn btn-primary">Salvar</button>
