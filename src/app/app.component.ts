@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
-  cliente: new() => Cliente;
+  cliente: new Cliente();
 
   profissoes = ['Engenheiro', 'Dentista', 'Professor']; // nome da propriedade
 
@@ -27,4 +27,5 @@ class Cliente {
   nome: string;
   email: string;
   profissao: string;
+
 }
