@@ -1,26 +1,63 @@
 <div class="container">
 
   {{cliente | json}}
+  {{ usuarioForm.valid}}
 
   <form autocomplete="off" (ngSubmit)=salvar(usuarioForm) #usuarioForm=ngForm>
 
     <div class="form-group">
+
       <label>Nome</label>
-      <input type="text" class="form-control" name="inputNome" [(ngModel)]="cliente.nome">
+
+      <input
+      type="text"
+      class="form-control"
+      name="inputNome"
+      #inputNome= "ngModel"
+      [(ngModel)]="cliente.nome"
+      minlength="5"
+      required>
+
+      <div style="color: red;" *ngIf="inputNome.dirty && inputNome.hasError('required')">Campo Obrigatorio!</div>
+      <div style="color: red;" *ngIf="inputNome.dirty && inputNome.hasError('minLength')">No minino 5 Caracteres!</div>
+
+      <div>Tocado: {{inputNome.touched}}</div>
+      <div>Intacto: {{inputNome.pristine}}</div>
+      <div>Modificado: {{inputNome.dirty}}</div>
+
     </div>
+
     <div class="form-group">
       <label>E-mail</label>
-      <input type="text" class="form-control" name="inputEmail" [(ngModel)]="cliente.email">
+
+      <input
+      type="text"
+      class="form-control"
+      name="inputEmail"
+      [(ngModel)]="cliente.email">
+
     </div>
     <div class="form-group">
       <label>Profissão</label>
-      <select class="form-control" name="selectProfissao" [(ngModel)]="cliente.profissao">
+      <select
+      class="form-control"
+      name="selectProfissao"
+      [(ngModel)]="cliente.profissao">
+
         <option value="">Selecione...</option>
-        <option *ngFor="let profissao of profissoes" [value]="profissao">{{ profissao }}</option>
+
+        <option
+        *ngFor="let profissao of profissoes"
+        [value]="profissao">{{ profissao }}</option>
+
       </select>
+
     </div>
+
     <button type="submit" class="btn btn-primary">
       Salvar
     </button>
+
   </form>
+
 </div>
