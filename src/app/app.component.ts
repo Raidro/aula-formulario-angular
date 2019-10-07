@@ -32,8 +32,8 @@ profissoes = ['Engenheiro', 'Dentista', 'Professor']; // nome da propriedade
   salvar(form: NgForm) {
 
     this.cliente.nome = form.value.inputNome;
-    this.cliente.email = form.value.inputNome;
-    this.cliente.profissao = form.value.inputNome;
+    this.cliente.email = form.value.inputEmail;
+    this.cliente.profissao = form.value.selectProfissao;
 
   }
 
